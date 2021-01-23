@@ -24,6 +24,15 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
+app.get("/api/timestamp/", (req, res) => {
+  let date = new Date(Date.now());
+
+  res.json({
+    utc: date.getTime(),
+    date: date.toUTCString()
+  });
+})
+
 app.get("/api/timestamp/:date", (req, res) => {
   let date = new Date(req.params.date);
 
@@ -36,7 +45,6 @@ app.get("/api/timestamp/:date", (req, res) => {
       date: date.toUTCString()
     });
   }
-
 });
 
 // listen for requests :)
