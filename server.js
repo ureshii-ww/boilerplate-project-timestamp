@@ -28,8 +28,8 @@ app.get("/api/timestamp/", (req, res) => {
   let date = new Date(Date.now());
 
   res.json({
-    utc: date.getTime(),
-    date: date.toUTCString()
+    unix: date.getTime(),
+    utc: date.toUTCString()
   });
 })
 
@@ -41,8 +41,8 @@ app.get("/api/timestamp/:date", (req, res) => {
   }
   else {
     res.json({
-      utc: date.getTime(),
-      date: date.toUTCString()
+      unix: date.getTime(),
+      utc: date.toUTCString()
     });
   }
 });
